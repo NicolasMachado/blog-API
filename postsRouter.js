@@ -34,7 +34,7 @@ router.post("/", jsonParser, (req, res, next) => {
 // delete entry
 router.delete("/:id", (req, res, next) => {
   BlogPosts.delete(req.params.id);
-  res.send("Entry deleted!");
+  res.send(`Entry with ID "${req.params.id}" deleted!`);
 });
 
 // edit entry
@@ -50,7 +50,7 @@ router.put("/:id", jsonParser, (req, res, next) => {
       updatedEntry.publishDate = req.body.publishDate;
     }
     BlogPosts.update(updatedEntry);
-    res.send(`Entry ${req.params.id} updated!`);
+    res.send(`Entry with title "${updatedEntry.title}" updated!`);
   } else {
     console.log("A parameter is missing. Cannot EDIT.");
     next();   
