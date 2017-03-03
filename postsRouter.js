@@ -17,7 +17,7 @@ router.get("/", (req, res, next) => {
 
 // return existing specific entry
 router.get("/:id", (req, res, next) => {
-    res.send(BlogPosts.get(req.params.id)); 
+    res.send(BlogPosts.get(req.params.id));
 });
 
 // post new entry
@@ -43,9 +43,9 @@ router.delete("/:id", (req, res, next) => {
 router.put("/:id", jsonParser, (req, res, next) => {
     if (req.params.id && req.body.title && req.body.content && req.body.author) {
         const updatedEntry = {
-            id: req.params.id, 
-            title: req.body.title, 
-            content: req.body.content, 
+            id: req.params.id,
+            title: req.body.title,
+            content: req.body.content,
             author: req.body.author
         };
         if (req.body.publishDate) {
@@ -53,7 +53,7 @@ router.put("/:id", jsonParser, (req, res, next) => {
         }
         BlogPosts.update(updatedEntry);
         console.log(`Entry with ID "${req.params.id}" updated!`);
-        res.send(BlogPosts.get(req.params.id)); 
+        res.send(BlogPosts.get(req.params.id));
     } else {
         console.log("A parameter is missing and I'm too lazy to tell you which one. Cannot EDIT.");
         next();   
