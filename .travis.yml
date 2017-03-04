@@ -2,7 +2,8 @@ language: node_js
 node_js: node
 deploy:
   provider: heroku
-  api_key: ''
-  app: fast-lowlands-63508
-  on:
+  api_key:
+    secure: FGyCttg3zIc3Ahx5UaZdnhWicXGSaJT54nXG0+xTt3KoW058sGK0WDrHT3wNVlQY4wIi3vYhx4C+hjuZaEd5MkV16hvgRaw7BRchBV9rs7jBfBKGqScbi3TTwxubpfN9fxoCzOaetFu1pTOxgFTVbeDP6LKffES9vqkeusVsFHktk/NHIJ3rrNkKx/dpUhGk2laAioIC7097tBD860wKZ3I5F7Anq+r0cVgR+9aIq76Vm47+qYKGK07EiZUBGtFvJn7F8t6OtRe7n4okWUtL1zTg+0eOnrvD1A8wE702Bxhgdf8UseEG614JAfUo2z5ZTqDCrpMX5Jc+a6oRFOTEqp9bs5aQxGgzxFQASMxBI7oPevAwdcKIJCUela6ye1KKI2lugyRmKViOpa5DdoV7oaJ1XBXj/vdHyWDOuKTkAcvI/G/bF6E+FfuuB1Y2y76I6Smb/zKq+Nnx5Ks0e4USbpC5lTU28UqtrXeEY/bNbBt6u2wbuB2RuEYlbf9JsuNlj/gZZJwR/myDTEhqYyegKktxW1mSuzaDyTyGowpH3xISjWdMHWcQEQRPA4RZEOVDt3yy7atoGmBbxTIDb8S0Ly+kDmZBWK3a48oG08oP4h0m5c//Vv98O3N73+xw2jBd5TEKZV1qaM+m1Hn14W5EpRswK/vhtn5l7XvKgn5DQjA=
+  app: blog-API
+  on: fast-lowlands-63508
     repo: NicolasMachado/blog-API
