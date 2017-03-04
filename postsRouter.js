@@ -7,12 +7,12 @@ const jsonParser = bodyParser.json();
 const {BlogPosts} = require('./models');
 
 // create default entries
-BlogPosts.create("This is my first blog entry!", "And the sun might or might not be shining!", "Nicolas");
-BlogPosts.create("This is my second blog entry!", "This is my first blog API!", "John");
+BlogPosts.create({title: "This is my first blog entry!", content: "And the sun might or might not be shining!", author: "Nicolas"});
+BlogPosts.create({title: "This is my second blog entry!", content: "This is my first blog API!", author: "John"});
 
 // return all existing entries
 router.get("/", (req, res, next) => {
-    res.send(BlogPosts.get());
+    res.json(BlogPosts.get());
 });
 
 // return existing specific entry
@@ -23,9 +23,14 @@ router.get("/:id", (req, res, next) => {
 // post new entry
 router.post("/", jsonParser, (req, res, next) => {
     if (req.body.title && req.body.content && req.body.author) {
-        BlogPosts.create(req.body.title, req.body.content, req.body.author, req.body.publishDate);
+        const newPost = BlogPosts.create({
+            title: req.body.title, 
+            content: req.body.content, 
+            author: req.body.author, 
+            publishDate: req.body.publishDate
+        });
         console.log(`Entry called "${req.body.title}" created!`);
-        res.send(BlogPosts.get());
+        res.status(201).send(BlogPosts.get(newPost.id));
     } else {
         console.log("A parameter is missing and I'm too lazy to tell you which one. Cannot CREATE.");
         next();
