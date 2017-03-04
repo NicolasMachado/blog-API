@@ -8,13 +8,13 @@ const postsRouter = require('./postsRouter');
 // log the http layer
 app.use(morgan('common'));
 
-app.use('/posts', postsRouter);
-
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.use('/posts', postsRouter);
 
+/*
 function runServer() {
   const port = process.env.PORT || 8080;
   return new Promise((resolve, reject) => {
@@ -26,7 +26,7 @@ function runServer() {
       reject(err);
     });
   });
-}
+}*/
 
 let server;
 
