@@ -17,7 +17,7 @@ router.get("/", (req, res, next) => {
 
 // return existing specific entry
 router.get("/:id", (req, res, next) => {
-    res.send(BlogPosts.get(req.params.id));
+    res.json(BlogPosts.get(req.params.id));
 });
 
 // post new entry
@@ -41,7 +41,7 @@ router.post("/", jsonParser, (req, res, next) => {
 router.delete("/:id", (req, res, next) => {
     BlogPosts.delete(req.params.id);
     console.log(`Entry with ID "${req.params.id}" deleted!`);
-    res.send(BlogPosts.get());
+    res.status(204).send(BlogPosts.get());
 });
 
 // edit entry
