@@ -10,7 +10,7 @@ const {BlogPosts} = require('./models');
 BlogPosts.create({title: "This is my first blog entry!", content: "And the sun might or might not be shining!", author: "Nicolas"});
 BlogPosts.create({title: "This is my second blog entry!", content: "This is my first blog API!", author: "John"});
 
-// return all existing entries
+// return all existing entries 
 router.get("/", (req, res, next) => {
     res.json(BlogPosts.get());
 });
