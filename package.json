@@ -4,6 +4,7 @@
   "description": "An API for a blog",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "mocha"
   },
   "author": "",
