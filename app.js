@@ -10,6 +10,10 @@ app.use(morgan('common'));
 
 app.use('/posts', postsRouter);
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
 
 function runServer() {
   const port = process.env.PORT || 8080;
